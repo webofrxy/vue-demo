@@ -10,6 +10,7 @@
 		<example></example>
 	</div>
 	<script>
+	//git status
 		Vue.component('example', {
 		  template: '<span @click="updateMessage">{{ message }}</span>',
 		  data: function () {
