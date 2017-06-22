@@ -11,6 +11,34 @@
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <body>
 	<div id="app">
+		<div class="w-batch">
+  	<h3>批量订单列表</h3>
+  	<div class="step">
+  		<h4>操作步骤：</h4>
+  		<p>
+  			<span>1</span>点击<a href="javascript:;">下载最新商品列表</a>，获取最新的商品清单
+  		</p>
+  		<p>
+  			<a :href="exportGoodsList">
+  				<button>点击下载</button>
+  			</a>
+  		</p>
+
+  		<p>
+  			<span>2</span>点击<a href="javascript:;">下载订单导入模板</a>，获取导入模板，根据模板格式填入订单信息；
+  		</p>
+  		<p>
+  			<a :href="exportOrderTem">
+  				<button>点击下载</button>
+  			</a>
+  		</p>
+
+  		<p>
+  			<span>3</span>上传订单导入模板，上传后如有失败条目，可下载失败文件并重新上传；
+  		</p>
+  		<p>
+  			上传成功后，可在“个人中心-交易管理-批量订单列表”查看导入成功的订单，并且进行付款操作。
+  		</p>
 		<el-upload
 			class="upload"
 			accept="excel"
@@ -27,6 +55,8 @@
 		</el-upload>
 		<input type="file" >
 	</div>
+	</div>
+  </div>
 </body>
 <script>
 	var vm = new Vue({
