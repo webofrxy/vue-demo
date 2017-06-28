@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+	var c = 3;
+	let d = 4;
+	letFn = (c, d)=>{
+		let a = 10;
+		var b = 2;
+		console.log(d)
+		console.log(c)
+		console.log(b)
+		console.log(a)
+	}
+	letFn(c, d);
+	console.log(a) //a is not defined
+	console.log(b) //b is not defined
+</script>
+	
+</body>
+</html>
