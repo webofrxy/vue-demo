@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动函数封装</title>
+	 <script src="js/gtMove.js"></script>
+</head>
+<body>
+	<div id="move"></div>
+	<div id="alpha"></div>
+	<input type="button" value="运动函数" id="but">
+</body>
+<script>
+	window.onload= function() {
+		var move = document.getElementById('move');
+		var alpha = document.getElementById('alpha');
+		var but = document.getElementById('but');
+		alpha.onclick = function() {
+			$gt(this,{
+				"width" :"200",
+				"height" : "300"
+			},10,function(){
+				$gt(this, {
+					"opacity" :"100"
+				})
+			})
+		}
+	}
+</script>
+   <style>
+        #move {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: red;
+        }
+        #alpha {
+            position: absolute;
+            top: 150px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            background-color: #080;
+        }
+    </style>
+</html>
