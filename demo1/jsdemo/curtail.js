@@ -13,7 +13,7 @@
 //     return newArr.shift();
 // }
 
-//slice 方法
+//slice 方法 不改变原数组 和splice 方法 改变原数组
 function curtail (arr) {
 	console.log(arr.slice(1));
 	console.log(arr)
