@@ -25,6 +25,26 @@
 				})
 			})
 		}
+
+		/** 
+		 *所有浏览器支持的浏览器控制台输出信息的方法 
+		 */  
+		(function(){  
+		   if(!window.debug){  
+		    window.debug = function(message){  
+		      try{  
+		           if(!window.console){  
+		               window.console = {};  
+		               window.console.log = function(){  
+		                  return;  
+		               }  
+		           }  
+		        window.console.log(message + ' ');  
+		      }catch(e){}  
+		    }  
+		}
+
+		})();  
 	}
 </script>
    <style>
