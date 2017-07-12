@@ -1,7 +1,6 @@
-'use strict '
+'use strict'
 
-//indexOf返回的是元素在数组中出现第一次的位置
-function indexof(arr, item) {
+function pulicate (arr) {
 	var a = [], b = [];
 	for (var i=0,len= arr.length;i<len;i++) {
 		if(!b[arr[i]]) {
@@ -16,7 +15,7 @@ function indexof(arr, item) {
 			a.push(i)
 		}
 	}
+	console.log(b)
 	return a;
 }
-
-console.log(indexof([1,2,3,4,5,3], 3))
+pulicate([1,2,4,4,3,3,1,5,3]);
