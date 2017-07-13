@@ -1,3 +1,8 @@
+'use strict'
+
+/**
+pop 截取数组
+*/
 function truncate(arr) {
 	var newArr = [];
     arr.forEach(function(item) {

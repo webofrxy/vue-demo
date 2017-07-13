@@ -1,5 +1,8 @@
 'use strict '
 
+/**
+数组去重
+*/
 //第一种方法也可以实现，但无法通过测试用例
 // function removeWithoutCopy (arr, item) {
 // 	arr.forEach(function(items, index) {

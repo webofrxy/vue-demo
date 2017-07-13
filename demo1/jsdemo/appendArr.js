@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+向数组的尾部添加元素
+*/
 function appendArr (arr, item) {
 	var newArr = [];
 	arr.forEach(function(items){

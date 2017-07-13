@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+筛选数组中重复的元素
+*/
 // function pulicate (arr) {
 // 	var a = [], b = [];
 // 	for (var i=0,len= arr.length;i<len;i++) {
