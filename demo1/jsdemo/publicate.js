@@ -1,21 +1,31 @@
 'use strict'
 
-function pulicate (arr) {
-	var a = [], b = [];
-	for (var i=0,len= arr.length;i<len;i++) {
-		if(!b[arr[i]]) {
-			b[arr[i]] = 1;
-			continue;
-		}
-		b[arr[i]] ++;
-	}
+// function pulicate (arr) {
+// 	var a = [], b = [];
+// 	for (var i=0,len= arr.length;i<len;i++) {
+// 		if(!b[arr[i]]) {
+// 			b[arr[i]] = 1;
+// 			continue;
+// 		}
+// 		b[arr[i]] ++;
+// 	}
 
-	for(var i=0;i<b.length;i++) {
-		if(b[i]>1) {
-			a.push(i)
+// 	for(var i=0;i<b.length;i++) {
+// 		if(b[i]>1) {
+// 			a.push(i)
+// 		}
+// 	}
+// 	console.log(b)
+// 	return a;
+// }
+
+function pulicate(arr) {
+	var result = [];
+	arr.forEach(function(elem){
+		if(arr.indexOf(elem) != arr.lastIndex(elem)&&result.indexOf(elem)==-1){
+			result.push(elem)
 		}
-	}
-	console.log(b)
-	return a;
+	});
+	return result;
 }
 pulicate([1,2,4,4,3,3,1,5,3]);
