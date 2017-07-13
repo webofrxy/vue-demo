@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+向数组中插入一个未出现的元素
+*/
 function remove(arr, item) {
     var newArr = [];
 	arr.forEach(function(index) {

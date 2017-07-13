@@ -1,5 +1,8 @@
 'use strict '
 
+/**
+获取数组元素平方组成的新数组
+*/
 function square (arr) {
 	var newArr = [];
 	arr.forEach(function(item){

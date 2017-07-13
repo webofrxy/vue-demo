@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+使用apply实现数组合并
+*/
 var arr1 = [1,2,3];
 var arr2 = [4,5,6];
 function applyFn (arr1, arr2) {

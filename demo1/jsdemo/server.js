@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+node 测试 server 本地服务器
+*/
 var
     fs = require('fs'),
     url = require('url'),

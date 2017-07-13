@@ -1,5 +1,8 @@
 'use strict '
 
+/**
+向数组的首部添加一个元素
+*/
 //利用concat
 function prepend(arr, item) {
     return [item].concat(arr);
