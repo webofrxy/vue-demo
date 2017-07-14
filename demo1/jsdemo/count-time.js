@@ -6,9 +6,16 @@
 3、第一个数需要立即输出
 */
 
-function count () {
-	setInterval(function(){
-		console.log(1)
-	},500)
+function count (start, end) {
+	var t =	setInterval(function(){
+		if(start < end) {
+			console.log(++start)
+		}
+	},500);
+	return {
+		cancel: function() {
+			clearInterval(t);
+		}
+	}
 }
-count()
+count(0,10)
