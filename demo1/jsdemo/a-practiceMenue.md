@@ -38,4 +38,5 @@
 37. url--测试 node 的URL模块
 38. functions--请修复给定的代码中，函数定义存在的问题
 39. return--保留两位小数，不够就补0
+40. parse2Int--parseInt用法，10进制，取整
 
