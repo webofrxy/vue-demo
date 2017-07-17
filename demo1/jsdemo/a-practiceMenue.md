@@ -42,5 +42,8 @@
 41. count-time--定时器，返回对象格式
 42. argsAsArray--函数传参，将数组中的元素作为调用函数fn的参数
 43. speak-- 函数上下文，将函数fn的执行的上下文改为obj
-
+44. functionFunction--返回函数，注意()()的问题
+45. makeClosures--使用闭包
+46. partial--二次封装函数
+47. useArguments--使用arguments
 
