@@ -40,4 +40,7 @@
 39. return--保留两位小数，不够就补0
 40. parse2Int--parseInt用法，10进制，取整
 41. count-time--定时器，返回对象格式
+42. argsAsArray--函数传参，将数组中的元素作为调用函数fn的参数
+43. speak-- 函数上下文，将函数fn的执行的上下文改为obj
+
 

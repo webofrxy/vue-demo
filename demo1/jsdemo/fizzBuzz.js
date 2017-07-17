@@ -10,6 +10,19 @@
 */
 
 function fizzBuzz(num) {
-	switch()
+	var  a = num % 3;
+	var  b = num % 5;
+	if(a == 0&&b == 0) {
+		console.log('fizzbuzz')
+	}else if(a == 0) {
+		console.log('fizz')
+	}else if(b == 0) {
+		console.log('buzz')
+	}else if (num == 'null' || typeof (num) != 'number') {
+		console.log(typeof num)
+        return false
+    }else {
+		console.log(num)
+	}
 }
-fizzBuzz(15);
+fizzBuzz(0);
