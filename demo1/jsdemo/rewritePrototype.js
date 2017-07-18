@@ -25,4 +25,4 @@
  		alert(this.name)
  	}
  };
- friend.sayName(); //error
+ friend.sayName(); //error: friend.sayName is not a function

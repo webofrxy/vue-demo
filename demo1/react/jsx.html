@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsx</title>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script type="text/babel">
+		var i = 1;
+		var style = {
+			fontSize: 20,
+			color: 'red'
+		};
+		var htmlArr = [
+			<strong>jsx中的使用数组包裹HTML</strong>,
+			<b>，jsx允许在模板中插入数组 </b>,
+			<em>，数组会自动展开所有成员</em>
+		];
+		var HelloMessage = React.createClass({
+			render: function() {
+				return <h1>React 中的HelloMessage 组件</h1>
+					
+			}
+		})
+		var myElement = <div className="foo">在jsx中渲染HTML组件,需要放在花括号中，这里直接写花括号不显示，否则不能解析，菜鸟教程此处解释有误</div>;
+		ReactDOM.render(
+			<div>
+				jsx模板语法		{<br/>/*jsx模板1、在标签内部的注释需要花括号2、在标签外的的注释不能使用花括号*/}
+				{1+3} 			{/*支持js表达式*/}
+				<h3>{i == 1 ? 'true--jsx中三元运算符用法' : 'false'}</h3> {/*不支持if-else，但支持三元运算符*/}
+				<p style={style}>react 中jsx的style写法</p>
+				<div>{htmlArr}</div>
+				{myElement}
+				<div>------------------------------------------------------</div>
+				<HelloMessage/>
+			</div>,
+			document.getElementById("content")
+
+		)
+	</script>
+</body>
+</html>
