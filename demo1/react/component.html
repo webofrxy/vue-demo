@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react 组件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            render: function (params) {
+                return <h1>hello{this.props.name}</h1>
+            }
+        });
+        ReactDOM.render(
+            <HelloMessage name="reactDemo" />,
+            document.getElementById('content')
+        )
+    </script>
+</body>
+</html>
