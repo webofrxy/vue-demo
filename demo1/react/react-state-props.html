@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>react 中state 和props 配合使用</title>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script type="text/babel">
+		var HelloMessage = React.createClass({
+			getInitialState: function() {
+				return {
+					name: 'baidu',
+					link: 'www.baidu.com'
+				}
+			},
+			render: function() {
+				return (
+					<div>
+						<Name name={this.state.name} />
+						<Link link={this.state.link} />
+					</div>
+				)
+			}
+		})
+		var Name = React.createClass({
+			render: function() {
+				return (
+					<h1>{this.props.name}</h1>
+				)
+			}
+		})
+		var Link = React.createClass({
+			render: function() {
+				return (
+					<h2>{this.props.link}</h2>
+				)
+			}
+		})
+		ReactDOM.render(
+			<HelloMessage />,
+			document.getElementById('content')
+		)
+	</script>
+</body>
+</html>
