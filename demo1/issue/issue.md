@@ -27,3 +27,4 @@
 8. vue中的路由处理：
 	使用vue-router： /#/home.html
 	使用history mode ： /home.html	
+9. 
