@@ -6,3 +6,4 @@
 	location是javascript里边管理地址栏的内置对象，比如location.href就管理页面的url，用location.href=url就可以直接将页面重定向url。而location.hash 	  则可以用来获取或设置页面的标签值。比如http://domain/#admin的location.hash="#admin"。
 4.  在git中处理分支时，如果你是分支dev，那你获取代码的流程是：
 	保存自己的代码=》拉别人Dev的代码=》合并别人Dev的代码=》上传代码（不能直接拉master上面的代码，合并代码时会报错）
+5. sublime =>nodejs=>ctrl+B=>run js file
