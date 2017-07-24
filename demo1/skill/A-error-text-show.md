@@ -1,3 +1,4 @@
 -failed to open stream:permission denied 打开数据流失败：没有权限，拒绝访问
 -原因：图片的路径出错
 -Unknown column 'transport_id' in 'field list' 未知的transport_id列的字段名
+-npm -g

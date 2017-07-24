@@ -22,14 +22,14 @@ const columns = [{
     key: 'action',
     render: (text, record) => (
         <span>
-      <a>Action 一 {record.name}</a>
-      <span className="ant-divider" />
-      <a>Delete</a>
-      <span className="ant-divider" />
-      <a className="ant-dropdown-link">
-        More actions <Icon type="down" />
-      </a>
-    </span>
+          <a>Action 一 {record.name}</a>
+          <span className="ant-divider" />
+          <a>Delete</a>
+          <span className="ant-divider" />
+          <a className="ant-dropdown-link">
+            More actions <Icon type="down" />
+          </a>
+        </span>
     ),
 }];
 
@@ -53,6 +53,7 @@ const data = [{
 const FirstNote = () => (
 	<div className="gutter-example">		
     	<Table columns={columns} dataSource={data} />
+        <button className="btn-default-my">按钮（默认）</button>
 	</div>
 );
 
