@@ -28,3 +28,4 @@
 	使用vue-router： /#/home.html
 	使用history mode ： /home.html	
 9. banner 图中使用position判断会出现连续点击的问题，解决办法：使用点击次数来控制左右的		移动
+10. element 组件中的change事件对所有的子组件都有效
