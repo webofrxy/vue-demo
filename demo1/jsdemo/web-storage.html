@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web storage</title>
+</head>
+<body>
+	<div id="list"></div>
+	<script>
+		loadAll();
+		function add() {
+
+		var sitename = '百度';
+		
+		var siteurl = 'www.baidu.com'
+		localStorage.setItem(sitename, siteurl);
+		}
+		add();
+		 //将所有存储在localStorage中的对象提取出来，并展现到界面上
+	    function loadAll(){  
+	        var list = document.getElementById("list");  
+	        if(localStorage.length>0){  
+	            var result = "<table border='1'>";  
+	            result += "<tr><td>网站名</td><td>网址</td></tr>";  
+	            for(var i=0;i<localStorage.length;i++){  
+	                var sitename = localStorage.key(i);  
+	                var siteurl = localStorage.getItem(sitename);  
+	                result += "<tr><td>"+sitename+"</td><td>"+siteurl+"</td></tr>";  
+	            }  
+	            result += "</table>";  
+	            list.innerHTML = result;  
+	        }else{  
+	            list.innerHTML = "数据为空……";  
+	        }  
+	    }  
+	</script>
+</body>
+</html>
