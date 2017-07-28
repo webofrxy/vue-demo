@@ -1,0 +1,184 @@
+<html>  
+<head>  
+    <title></title>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <script language="javascript" src="../util/jquery.js"></script>  
+    <script language="javascript" src="../util/jquery.base64.js"></script>  
+      
+</head>  
+  
+<body>  
+<input id="path"  name="path" type="hidden" value="haha"></input>  
+  
+<input id="putcardno01"  name="putcardno01" type="text" size="65" value=""></input>  
+<br>  
+  
+<input onclick="subfunc();" class="btn1" value="提交加密"   type="button"></input>  
+<br>  
+加密后：<input id="putcardno02"  name="putcardno02" type="text" size="65" value=""></input>  
+<br>  
+<input onclick="subfunc02();" class="btn1" value="提交解密"   type="button"></input>  
+<br>  
+<br>  
+  
+<hr>  
+  
+<input onclick="subfunc03();" class="btn1" value="提交N次加密"   type="button"></input>  
+<br>  
+加密后：<input id="putcardno03"  name="putcardno03" type="text" size="65" value=""></input>  
+<br>  
+<input onclick="subfunc04();" class="btn1" value="提交N次解密"   type="button"></input>  
+<br>  
+<br>  
+  
+  
+<input onclick="clearrr();" class="btn1" value="清除"   type="button"></input>  
+<br>  
+<textarea id='txt' cols="75" rows="19"></textarea>  
+  
+  
+  
+</body>  
+  
+  
+<script language="javascript">  
+var path=document.getElementById("path").value;  
+function app(info){  
+   $("#txt").val($("#txt").val()+'\n'+info);  
+}  
+  
+  
+  
+function subfunc(){ 
+	// $.trim()是jQuery提供的函数，用于去掉字符串首尾的空白字符。 
+  var put1=$.trim($("#putcardno01").val());  
+ // var estxt=$.base64.encode(put1);  
+  //var estxt=$.base64.btoa(put1);  
+  
+  var estxt=encodeBase64(put1);  
+  $("#putcardno02").val(estxt);  
+  app("加密后["+estxt+"]");  
+}  
+  
+  
+  
+function subfunc02(){  
+  var put1=$.trim($("#putcardno02").val());  
+  //var estxt=$.base64.decode(put1);  
+  //var estxt=$.base64.atob(put1);  
+  
+  var estxt=decodeBase64(put1);  
+  app("解密后["+estxt+"]");  
+}  
+  
+  
+//////////////////////////////////////////  
+var numTimes=5;  
+  
+function subfunc03(){  
+  var put1=$.trim($("#putcardno01").val());  
+ // var estxt=$.base64.encode(put1);  
+  //var estxt=$.base64.btoa(put1);  
+  //estxt=$.base64.btoa(estxt);  
+    
+  estxt=encodeBase64(put1,numTimes);  
+  
+  $("#putcardno03").val(estxt);  
+  app(numTimes+"次加密后["+estxt+"]");  
+}  
+  
+  
+  
+function subfunc04(){  
+  var put1=$.trim($("#putcardno03").val());  
+  //var estxt=$.base64.decode(put1);  
+  //var estxt=$.base64.atob(put1);  
+  //estxt=$.base64.atob(estxt);  
+  
+  
+  estxt=decodeBase64(put1,numTimes);  
+  app(numTimes+"次解密后["+estxt+"]");  
+}  
+  
+  
+function clearrr(){  
+  $("#putcardno02").val("");  
+  $("#putcardno03").val("");  
+  $("#putcardno04").val("");  
+  $("#txt").val("");  
+}  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+//加密方法。没有过滤首尾空格，即没有trim.  
+//加密可以加密N次，对应解密N次就可以获取明文  
+function encodeBase64(mingwen,times){  
+    var code="";  
+    var num=1;  
+    if(typeof times=='undefined'||times==null||times==""){  
+       num=1;  
+    }else{  
+       var vt=times+"";  
+       num=parseInt(vt);  
+    }  
+  
+    if(typeof mingwen=='undefined'||mingwen==null||mingwen==""){  
+  
+    }else{  
+        $.base64.utf8encode = true;  
+        code=mingwen;  
+        for(var i=0;i<num;i++){  
+           code=$.base64.btoa(code);  
+        }  
+    }  
+    return code;  
+}  
+  
+  
+//解密方法。没有过滤首尾空格，即没有trim  
+//加密可以加密N次，对应解密N次就可以获取明文  
+function decodeBase64(mi,times){  
+    var mingwen="";  
+    var num=1;  
+    if(typeof times=='undefined'||times==null||times==""){  
+       num=1;  
+    }else{  
+       var vt=times+"";  
+       num=parseInt(vt);  
+    }  
+  
+  
+    if(typeof mi=='undefined'||mi==null||mi==""){  
+  
+    }else{  
+       $.base64.utf8encode = true;  
+       mingwen=mi;  
+       for(var i=0;i<num;i++){  
+           mingwen=$.base64.atob(mingwen);  
+       }  
+    }  
+    return mingwen;  
+}  
+  
+  
+/*  
+测试  
+输入 suolong2014version  
+  
+  
+加密后[c3VvbG9uZzIwMTR2ZXJzaW9u]  
+解密后[suolong2014version]  
+5次加密后[VjFod1QxWXlVblJUYTJoUVYwWmFhRnBYZEhOTk1WSlhWV3hPVG1KSVFscFZNalYzWVVaYU5tSkVSVDA9]  
+5次解密后[suolong2014version]  
+*/  
+</script> 
