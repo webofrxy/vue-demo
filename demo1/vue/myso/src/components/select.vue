@@ -1,14 +1,18 @@
 <template>
-	<div class="select">
-	  <el-select v-model="value" placeholder="请选择" size="mini">
+	<!-- <div class="select"> -->
+	  <el-select v-model="value" placeholder="请选择" size="mini" >
 	    <el-option
 	      v-for="item in options"
 	      :key="item.value"
 	      :label="item.label"
-	      :value="item.value">
+	      :value="item.value"
+		
+	      >
+		    <span style="float: left;">{{ item.label }}</span>
+		    <span style="float: right;">{{ item.value}}</span>
 	    </el-option>
 	  </el-select>
-	</div>
+	<!-- </div> -->
 </template>
 
 <script>
@@ -38,5 +42,7 @@
 </script>
 
 <style scoped>
-	
+/*.select{
+	position: relative;
+}*/
 </style>
