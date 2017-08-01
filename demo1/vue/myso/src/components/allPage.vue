@@ -38,7 +38,7 @@
 	width: -webkit-calc(100% - 255px);
 	width: calc(100% - 255px);
 	height: 100%;
-	margin-left: 260px;
+	margin-left: 255px;
 	background: yellow;
 
 }
