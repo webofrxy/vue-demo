@@ -4,7 +4,11 @@
     <h2><router-link to="/allPage">AllPage</router-link></h2>
     <h3><router-link to="/select">Select</router-link></h3>
     <h3><router-link to="/navMenu">navMenu</router-link></h3>
-
+    <h3><router-link to="/header">header</router-link></h3>
+    <h3><router-link to="/breadcrumb">breadcrumb</router-link></h3>
+    <h3><router-link to="/datePicker">datePicker</router-link></h3>
+    <h3><router-link to="/list">list</router-link></h3>
+    <h3><router-link to="/pagination">pagination</router-link></h3>
   </div>
 </template>
 

@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
+import allPage from '@/components/allPage'
 import select from '@/components/select'
 import navMenu from '@/components/navMenu'
-import allPage from '@/components/allPage'
+import header from '@/components/header'
+import breadcrumb from '@/components/breadcrumb'
+import datePicker from '@/components/datePicker'
+import list from '@/components/list'
+import pagination from '@/components/pagination'
 
 Vue.use(Router)
 
@@ -28,6 +33,31 @@ export default new Router({
       path: '/allPage',
       name: 'allPage',
       component: allPage
+    },
+    {
+      path: '/header',
+      name: 'header',
+      component: header
+    },
+    {
+      path:'/breadcrumb',
+      name: '/breadcrumb',
+      component: breadcrumb
+    },
+    {
+      path: '/datePicker',
+      name: '/datePicker',
+      component: datePicker
+    },
+    {
+      path: '/list',
+      name: '/list',
+      component: list
+    },
+    {
+      path: '/pagination',
+      name: '/pagination',
+      component: pagination
     }
   ]
 })

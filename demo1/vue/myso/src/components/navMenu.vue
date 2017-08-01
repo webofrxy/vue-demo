@@ -1,5 +1,5 @@
 <template>
-   <el-col :span="8" style="width: 200px;height: 800px;">
+   <el-col :span="8" style="width: 100%;height: 800px;">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>Navigation</template>
