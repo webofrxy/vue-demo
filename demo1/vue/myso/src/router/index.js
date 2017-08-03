@@ -9,6 +9,7 @@ import breadcrumb from '@/components/breadcrumb'
 import datePicker from '@/components/datePicker'
 import list from '@/components/list'
 import pagination from '@/components/pagination'
+import login from '@/components/login'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path: '/pagination',
       name: '/pagination',
       component: pagination
+    },
+    {
+      path: '/login',
+      name: '/login',
+      component: login
     }
   ]
 })
