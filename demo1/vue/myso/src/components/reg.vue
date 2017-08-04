@@ -33,7 +33,7 @@ export default{
 
     methods:{
         reg(email, password, comfirmPassword){
-            this.$axios.post('/reg',{
+            this.$axios.post('/api/login/createAccount',{
                 email: this.email,
                 password: this.password,
                 comfirmPassword: this.comfirmPassword
@@ -41,7 +41,7 @@ export default{
                 console.log(res)
                 if(res.status==200){
                     console.log('注册成功');
-                    this.$router.push('/login');
+                    // this.$router.push('/login');
                 }else{
                     console.log('注册失败')
                 }

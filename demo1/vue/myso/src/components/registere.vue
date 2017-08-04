@@ -5,8 +5,8 @@
     <button type="submit" class="btn btn-default" @click="login">登录</button> -->
     <el-input v-model="account"  placeholder="请输入账号"></el-input>
     <el-input v-model="password" class="login-password" placeholder="请输入密码"></el-input>
-    <el-button type="primary"  @click="login" style="width: 200px;">登录</el-button>
-    <!-- <el-button>二维码</el-button> -->
+    <el-button type="primary"  @click="login">账号密码</el-button>
+    <el-button>二维码</el-button>
   </div>
 </template>
 
@@ -43,4 +43,4 @@
     }
 </script>
 
-<style scoped src="../css/login.css"></style>
+<style scoped src="../css/register.css"></style>
