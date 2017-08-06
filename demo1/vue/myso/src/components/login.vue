@@ -4,7 +4,7 @@
     <div class="login-form">
       <el-input v-model="account"  placeholder="请输入账号"></el-input>
       <el-input v-model="password" class="login-password" placeholder="请输入密码"></el-input>
-      <el-button type="primary"  @click="login" style="width: 200px;">登录</el-button>
+      <el-button type="primary"  @click="login" style="width: 100%;">登录</el-button>
     </div>
   </div>
 </template>

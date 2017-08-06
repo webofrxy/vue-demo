@@ -1,4 +1,4 @@
-.login{
+.reg{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -7,18 +7,18 @@
 	background: #fff;
 	/* background: #252a2f; */
 }
-.login h2 {
+.reg h2 {
 	text-align: center;
 	font-size: 30px;
 	color: #20a0ff;
 	letter-spacing: 8px;
 	margin-top: 100px;
 }
-.login-password{
-	margin-bottom: 20px;
+.reg-password{
+	/* margin-bottom: 10px; */
 	margin-top: 10px;
 }
-.login-form{
+.reg-form{
 	width: 400px;
 	position: relative;
 	background: #fff;
@@ -26,7 +26,7 @@
 	border-radius: 5px;
 	padding: 40px 0;
 }
-.login-form input{
+.reg-form input{
 	display: block;
     width: 80%;
     height: 40px;
@@ -36,4 +36,8 @@
     border-style: none;
     border: 1px solid #eee;
     border-radius: 4px;
+}
+.reg-btn{
+    width: 100%;
+    margin-top: 20px;
 }
