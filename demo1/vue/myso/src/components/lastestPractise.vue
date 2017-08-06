@@ -1,0 +1,32 @@
+<template>
+    <div class="contain">
+        <breadcrumb class="breadcrumb"></breadcrumb>
+        <datePicker class="datePicker"></datePicker>
+        <list class="list"></list>
+        <pagination class="pagination"></pagination>
+    </div>
+    
+</template>
+<script>
+import breadcrumb from '@/components/breadcrumb'
+import datePicker from '@/components/datePicker'
+import list from '@/components/list'
+import pagination from '@/components/pagination'
+export default {
+  data(){
+      return{
+
+      }
+  },
+  components:{
+    breadcrumb,
+    datePicker,
+    list,
+    pagination
+  }
+}
+</script>
+<style>
+
+</style>
+

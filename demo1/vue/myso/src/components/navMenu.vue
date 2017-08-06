@@ -4,8 +4,8 @@
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>后台首页</template>
         <el-menu-item-group>          
-          <el-menu-item index="1-1">后台首页</el-menu-item>
-          <el-menu-item index="1-2">最新练习</el-menu-item>
+          <el-menu-item index="1-1"><router-link to="/adminArticleList">文章列表</router-link></el-menu-item>
+          <el-menu-item index="1-2"><router-link to="/lastestPractise">最新练习</router-link></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="2"><i class="el-icon-menu"></i>发布文章</el-menu-item>

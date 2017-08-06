@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import allPage from '@/components/allPage'
+import admin from '@/components/admin'
+import adminArticleList from '@/components/adminArticleList'
+import lastestPractise from '@/components/lastestPractise'
 import select from '@/components/select'
 import navMenu from '@/components/navMenu'
 import header from '@/components/header'
@@ -32,9 +34,21 @@ export default new Router({
       component: navMenu
     },
     {
-      path: '/allPage',
-      name: 'allPage',
-      component: allPage
+      path: '/admin',
+      name: 'admin',
+      component: admin,
+      children: [
+        {
+          path: '/adminArticleList',
+          name: 'adminArticleList',
+          component: adminArticleList
+        },
+        {
+          path: '/lastestPractise',
+          name: '/lastestPractise',
+          component: lastestPractise
+        }
+      ]
     },
     {
       path: '/header',
