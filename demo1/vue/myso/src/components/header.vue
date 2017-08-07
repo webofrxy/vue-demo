@@ -2,8 +2,8 @@
 	<div class="header">
 		<h1 class="logo-wrap">logo</h1>
 		<ul class="info-wrap">
-			<li >登录</li>
-			<li ><router-link to="/login">注册</router-link></li>
+			<li><router-link to="/login">登录</router-link></li>
+			<li ><router-link to="/reg">注册</router-link></li>
 		</ul>
 	</div>
 </template>
@@ -41,5 +41,9 @@
 	display: inline-block;
 	list-style: none;
 	color: white;
+}
+.header .info-wrap a{
+	color: #fff;
+	text-decoration-line: none;
 }
 </style>

@@ -2,9 +2,9 @@
   <div class="login">
     <h2>管理员登录</h2>
     <div class="login-form">
-      <input v-model="account" type="text" placeholder="请输入账号"></input>
-      <input v-model="password" type="password" class="login-password" placeholder="请输入密码"></input>
-      <el-button type="primary"  @click="login" style="width: 200px;">登录</el-button>
+      <el-input v-model="account"  placeholder="请输入账号"></el-input>
+      <el-input v-model="password" class="login-password" placeholder="请输入密码"></el-input>
+      <el-button type="primary"  @click="login" style="width: 100%;">登录</el-button>
     </div>
   </div>
 </template>

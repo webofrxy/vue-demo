@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <!-- <div class="container">
         <p class="alert alert-danger" v-for="item in errors">{{item.msg}}</p>
 
         <form class="form-signin">
@@ -16,7 +16,16 @@
             <a class="btn btn-lg btn-primary btn-block"  @click="reg(email, password, comfirmPassword)">注册</a>
         </form>
 
-    </div> <!-- /container -->
+    </div> -->
+    <div class="reg">
+        <h2>管理员登录</h2>
+        <div class="reg-form">
+            <el-input v-model="email"  placeholder="请输入邮箱"></el-input>
+            <el-input v-model="password" class="reg-password" placeholder="请输入密码"></el-input>
+            <el-input v-model="comfirmPassword" class="reg-password" placeholder="请再次输入密码"></el-input>
+            <el-button type="primary"  @click="reg(email, password, comfirmPassword)" class="reg-btn">注册</el-button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -54,5 +63,5 @@ export default{
 }
 </script>
 
-<style scoped src="../css/signin.css">
+<style scoped src="../css/reg.css">
 </style>

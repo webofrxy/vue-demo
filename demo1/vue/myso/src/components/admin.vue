@@ -1,17 +1,15 @@
 <template>
-	<div class="allPage">
-		<div class="all-head">
+	<div class="admin">
+		<div class="admin-head">
 			<myhead></myhead>
 		</div>
-		<div class="all-content">
-			<div class="all-side">
+		<div class="admin-content">
+			<div class="admin-side">
 				<navMenu></navMenu>
 			</div>
-			<div class="all-contain">
-				<breadcrumb class="breadcrumb"></breadcrumb>
-				<datePicker class="datePicker"></datePicker>
-				<list class="list"></list>
-				<pagination class="pagination"></pagination>
+			<div class="admin-contain">
+				<router-view></router-view>
+				
 			</div>
 		</div>	
 	</div>
@@ -21,10 +19,7 @@
 <script>
 import navMenu from '@/components/navMenu'
 import myhead from '@/components/header'
-import breadcrumb from '@/components/breadcrumb'
-import datePicker from '@/components/datePicker'
-import list from '@/components/list'
-import pagination from '@/components/pagination'
+
 
 export default {
 	data() {
@@ -35,35 +30,32 @@ export default {
 	components:{
 		myhead,
 		navMenu,
-		breadcrumb,
-		datePicker,
-		list,
-		pagination
+		
 	}
 }
 </script>
 
 <style>
-.allPage{
+.admin{
 	height: 100%;
 }
-.allPage .all-head{
+.admin .admin-head{
 	width: 100%;
 	height: 70px;
 	background: gold;
 }
-.allPage .all-content{
+.admin .admin-content{
 	height: -moz-calc(100% - 70px);
 	height: -webkit-calc(100% - 70px);
 	height: calc(100% - 70px);
 }
-.all-content .all-side{
+.admin-content .admin-side{
 	width: 255px;
 	height: 100%;
 	float: left;
 	background: #eef1f6;
 }
-.all-content .all-contain{
+.admin-content .admin-contain{
 	width: -moz-calc(100% - 315px);
 	width: -webkit-calc(100% - 315px);
 	width: calc(100% - 315px);
@@ -75,13 +67,13 @@ export default {
 	background: white;
 
 }
-.all-contain .breadcrumb{
+.admin-contain .breadcrumb{
 	height: 40px;
 }
-.all-contain .list{
+.admin-contain .list{
 	margin-top: 20px;
 }
-.all-contain .pagination{
+.admin-contain .pagination{
 	margin-top: 20px;
 	float: right;
 }
