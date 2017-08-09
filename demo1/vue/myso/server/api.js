@@ -38,6 +38,27 @@ router.get('/api/login/getAccount',(req,res) => {
     });
 });
 
+//新建文章
+router.get('/api/saveArticle',(req, res) => {
+    model.Article.find((err, data) => {
+        if(err) {
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(data);
+            res.send(data);
+        }
+    })
+    // let articleInfo = new models.Article(req.body.articleInformation).save((err,data) => {
+    
+    //     if(err) {
+    //         res.send(err)
+    //     }else{
+    //         res.send('新建文章成功')
+    //     }
+    // })
+})
+
 module.exports = router;
 
 // const express = require('express');

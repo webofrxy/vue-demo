@@ -8,10 +8,10 @@
     
 </template>
 <script>
-import breadcrumb from '@/components/breadcrumb'
-import datePicker from '@/components/datePicker'
-import list from '@/components/list'
-import pagination from '@/components/pagination'
+import breadcrumb from '@/components/common/breadcrumb'
+import datePicker from '@/components/common/datePicker'
+import list from '@/components/common/list'
+import pagination from '@/components/common/pagination'
 export default {
   data(){
       return{

@@ -3,6 +3,7 @@
     <h1>element</h1>
     <h2><router-link to="/admin">Admin</router-link></h2>
     <h3><router-link to="/adminArticleList">adminArticleList</router-link></h3>
+    <h3><router-link to="/adminArticleEdit">adminArticleEdit</router-link></h3>
     <h3><router-link to="/select">Select</router-link></h3>
     <h3><router-link to="/navMenu">navMenu</router-link></h3>
     <h3><router-link to="/header">header</router-link></h3>

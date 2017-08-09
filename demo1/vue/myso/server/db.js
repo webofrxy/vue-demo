@@ -10,14 +10,22 @@
  db.once('error',() => console.log('Mongo connection error'));
  db.once('open',() => console.log('Mongo connection successed'));
 /************** 定义模式loginSchema **************/
- const loginSchema = mongoose.Schema({
+ const loginSchema = new mongoose.Schema({
      account : String,
      password : String
  });
+ const articleSchema = new mongoose.Schema({
+ 	title: String,
+ 	date: Date,
+ 	articleContent: String,
+ 	state: String,
+ 	label: String
+ })
 
 /************** 定义模型Model **************/
  const Models = {
-     Login : mongoose.model('rxytest',loginSchema)
+     Login : mongoose.model('rxytest',loginSchema),
+     Article: mongoose.model('Article',articleSchema)
 }
 
 module.exports = Models;

@@ -4,13 +4,15 @@ import Hello from '@/components/Hello'
 import admin from '@/components/admin'
 import adminArticleList from '@/components/adminArticleList'
 import lastestPractise from '@/components/lastestPractise'
-import select from '@/components/select'
-import navMenu from '@/components/navMenu'
-import header from '@/components/header'
-import breadcrumb from '@/components/breadcrumb'
-import datePicker from '@/components/datePicker'
-import list from '@/components/list'
-import pagination from '@/components/pagination'
+import adminArticleEdit from '@/components/adminArticleEdit'
+import adminChangeInfo from '@/components/adminChangeInfo'
+import select from '@/components/common/select'
+import navMenu from '@/components/common/navMenu'
+import adminHeader from '@/components/adminHeader'
+import breadcrumb from '@/components/common/breadcrumb'
+import datePicker from '@/components/common/datePicker'
+import list from '@/components/common/list'
+import pagination from '@/components/common/pagination'
 import login from '@/components/login'
 import reg from '@/components/reg'
 
@@ -47,13 +49,23 @@ export default new Router({
           path: '/lastestPractise',
           name: '/lastestPractise',
           component: lastestPractise
+        },
+        {
+          path: '/adminArticleEdit',
+          name: '/adminArticleEdit',
+          component: adminArticleEdit
+        },
+        {
+          path: '/adminChangeInfo',
+          name: '/adminChangeInfo',
+          component: adminChangeInfo
         }
       ]
     },
     {
-      path: '/header',
-      name: 'header',
-      component: header
+      path: '/adminHeader',
+      name: 'adminHeader',
+      component: adminHeader
     },
     {
       path:'/breadcrumb',
