@@ -177,7 +177,7 @@ export default {
                     state: 'draft',
                     label: labelName
                 }
-                this.$axios.get('/api/saveArticle', {
+                this.$axios.post('/api/saveArticle', {
                     articleInformation: obj
                 }).then(
                     respone => {
@@ -193,14 +193,55 @@ export default {
         },
         // 发布文章
         publishedArticles: function(){
-             this.$axios.get('/api/saveArticle').then(
-                    respone => {
+             // this.$axios.get('/api/saveArticle').then(
+             //        respone => {
+             //            Message.success('文章发布成功')
+             //            // 如果文章信息保存成功就给父组件派发一个事件通知它刷新文章列表
+                        
+             //        },
+             //        respone => Message.error('文章发布失败')
+             //    )
+
+                var obj = {
+                    articleContent: this.content,
+                    date: new Date().format('yyyy-MM-dd hh:mm:ss'),
+                    label: '未分类',
+                    state: 'publish',
+                    title: this.articleTitle,
+                }
+                this.$axios.post("/api/changeArticle",{
+                    articleInformation: obj
+                }).then(
+                    function(res) {
                         Message.success('文章发布成功')
                         // 如果文章信息保存成功就给父组件派发一个事件通知它刷新文章列表
-                        
+                        // self.$emit('saveArticleInformation')
                     },
-                    respone => Message.error('文章发布失败')
+                    function(res){
+                        Message.error('文章发布失败');
+                        console.log(res.body)
+                    } 
                 )
+
+                // reg(email, password, comfirmPassword){
+                //     this.$axios.post('/api/login/createAccount',{
+                //         email: this.email,
+                //         password: this.password,
+                //         comfirmPassword: this.comfirmPassword
+                //     }).then(function(res){
+                //         console.log(res)
+                //         if(res.status==200){
+                //             console.log('注册成功');
+                //             // this.$router.push('/login');
+                //         }else{
+                //             console.log('注册失败')
+                //         }
+                //     },function(res){
+                //         console.log('注册失败，未通过服务端校验'+ res.status);
+                //         this.errors=res.body;
+                //     });
+                // }
+
             // var self = this
             // if(this.$route.query.id){
             //     // 更新
@@ -243,7 +284,7 @@ export default {
             //         state: 'publish',
             //         label: labelName
             //     }
-            //     this.$axios.post('/api/login/saveArticle', {
+            //     this.$axios.post('/api/saveArticle', {
             //         articleInformation: obj
             //     }).then(
             //         respone => {

@@ -15,17 +15,17 @@
      password : String
  });
  const articleSchema = new mongoose.Schema({
- 	title: String,
- 	date: Date,
  	articleContent: String,
+ 	date: Date,
+ 	label: String,
  	state: String,
- 	label: String
+ 	title: String,
  })
 
 /************** 定义模型Model **************/
  const Models = {
      Login : mongoose.model('rxytest',loginSchema),
-     Article: mongoose.model('Article',articleSchema)
+     Article: mongoose.model('artical',articleSchema)
 }
 
 module.exports = Models;
