@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<h1 class="logo-wrap">logo</h1>
+		<h1 class="logo-wrap">Admin</h1>
 		<ul class="info-wrap">
 			<li><router-link to="/login">登录</router-link></li>
 			<li ><router-link to="/reg">注册</router-link></li>

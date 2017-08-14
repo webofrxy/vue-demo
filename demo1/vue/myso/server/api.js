@@ -38,6 +38,34 @@ router.get('/api/login/getAccount',(req,res) => {
     });
 });
 
+//新建文章
+router.get('/api/saveArticle',(req,res) => {
+    console.log(1)
+
+    models.Article.find((err, data) => {
+        if(err) {
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(data);
+            res.send(data);
+        }
+    })
+})
+//修改文章(如果这个api接口已经get连接成功过，则重新post会报404，所以遇到404问题可以重写新函数新路径)
+router.post("/api/changeArticle",(req,res) => {
+    
+    let articleInfo = new models.Article(req.body.articleInformation).save((err,data) => {
+    
+        if(err) {
+            console.log(1)
+            res.send(err)
+        }else{
+            console.log(data)
+            res.send('新建文章成功')
+        }
+    })
+})
 module.exports = router;
 
 // const express = require('express');

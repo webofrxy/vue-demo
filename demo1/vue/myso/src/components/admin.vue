@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import navMenu from '@/components/navMenu'
-import myhead from '@/components/header'
+import navMenu from '@/components/common/navMenu'
+import myhead from '@/components/adminHeader'
 
 
 export default {

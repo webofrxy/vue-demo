@@ -11,5 +11,8 @@ export default {
 </script>
 
 <style>
-
+#app a{
+	color: #48576a;
+	text-decoration-line: none; 
+}
 </style>
