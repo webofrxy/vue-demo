@@ -25,7 +25,7 @@
 /************** 定义模型Model **************/
  const Models = {
      Login : mongoose.model('rxytest',loginSchema),
-     Article: mongoose.model('artical',articleSchema)
+     Article: mongoose.model('artical',articleSchema),
 }
 
 module.exports = Models;

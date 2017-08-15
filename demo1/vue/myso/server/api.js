@@ -38,7 +38,7 @@ router.get('/api/login/getAccount',(req,res) => {
     });
 });
 
-//新建文章
+//查看文章
 router.get('/api/saveArticle',(req,res) => {
     console.log(1)
 
@@ -52,7 +52,7 @@ router.get('/api/saveArticle',(req,res) => {
         }
     })
 })
-//修改文章(如果这个api接口已经get连接成功过，则重新post会报404，所以遇到404问题可以重写新函数新路径)
+//新建文章(如果这个api接口已经get连接成功过，则重新post会报404，所以遇到404问题可以重写新函数新路径)
 router.post("/api/changeArticle",(req,res) => {
     
     let articleInfo = new models.Article(req.body.articleInformation).save((err,data) => {
@@ -63,6 +63,41 @@ router.post("/api/changeArticle",(req,res) => {
         }else{
             console.log(data)
             res.send('新建文章成功')
+        }
+    })
+})
+//文章列表
+router.get('/api/admin/articleList',(req,res) => {
+    models.Article.find(function(err,data){
+        if(err) {
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(data);
+            res.send(data);
+        }
+    })
+})
+//删除文章
+// router.post('/api/admin/deletArticle',(req,res) => {
+//     models.Article.remove({title:req.body.title}, function(err,data){
+//         if(err){
+//             console.log(err);
+//             res.send(err);
+//         }else{
+//             console.log(data);
+//             res.send(data);
+//         }
+//     })
+// })
+router.post('/api/admin/deleArticle',(req,res) => {
+    models.Article.remove({title:req.body.title}, function(err,data){
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(data);
+            res.send(data);
         }
     })
 })

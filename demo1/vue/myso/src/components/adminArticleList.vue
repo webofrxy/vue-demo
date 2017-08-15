@@ -1,85 +1,41 @@
 <template>
     <div>
         <h2 class="sub-header">文章列表 </h2>
-        <form class="form-inline form-filter">
-            <div class="form-group">
-                <label>分类</label>
-                <select class="form-control" v-model="category">
-                    <option value="">- 选择分类 -</option>
-                    <option v-for="item in categories" :value="item._id.toString()">{{item.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>作者</label>
-                <select class="form-control" v-model="user">
-                    <option value="">- 选择作者 -</option>
-                    <option v-for="item in users" :value="item._id.toString()">{{item.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>关键词</label>
-                <input class="form-control" v-model="keyword" type="text" />
-            </div>
-            <a class="btn btn-info" @click="getArticleList(1, sortby, sortdir, category, user, keyword)">筛选</a>
-        </form>
-
-        <div class="table-responsive articleList">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th width="30%">
-                        <a href="javascript:;" @click="sortList(1, 'title', sortdir, category, user, keyword)">标题
-                            <span v-show="showArrow=='title'">{{arrow}}</span></a>
-                    </th>
-                    <th>
-                        <a href="javascript:;" @click="sortList(1, 'category', sortdir, category, user, keyword)">分类
-                            <span v-show="showArrow=='category'">{{arrow}}</span></a></th>
-                    <th>
-                        <a href="javascript:;" @click="sortList(1, 'user', sortdir, category, user, keyword)">作者
-                            <span v-show="showArrow=='user'">{{arrow}}</span></a></th>
-                    <th>
-                        <a href="javascript:;" @click="sortList(1, 'created', sortdir, category, user, keyword)">添加时间
-                            <span v-show="showArrow=='created'">{{arrow}}</span></a></th>
-                    <th>被赞</th>
-                    <th>评论</th>
-                    <th>
-                        <a href="javascript:;" @click="sortList(1, 'published', sortdir, category, user, keyword)">状态
-                            <span v-show="showArrow=='published'">{{arrow}}</span></a></th>
-                    <th>管理</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(article,index) in articles">
-                    <td>{{article.title}}</td>
-                    <td>{{article.category ? article.category.name : 0}}</td>
-                    <td>{{article.author ? article.author.name : 0}}</td>
-                    <td>{{article.created}}</td>
-                    <td>{{article.meta.favorites}}</td>
-                    <td>{{article.comments.length}}</td>
-                    <td>{{article.published}}</td>
-                    <td>
-                        <router-link class="btn btn-sm btn-success" :to="{path:'/userArticle', query:{id:article.slug}}">查看</router-link>
-                        <router-link class="btn btn-sm btn-info" :to="{path:'/adminAddArticle', query:{id:article._id}}">编辑</router-link>
-                        <a href="javascript:;" class="btn btn-sm btn-danger" @click="deleteArticle(article._id, index)">删除</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+        <el-table
+            v-show="emptyList == 1"
+            :data="articleList"
+            stripe
+            style="width: 100%">
+            <el-table-column
+              prop="title"
+              label="标题"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="date"
+              label="时间"
+            >
+            </el-table-column>
+            <el-table-column
+              label="操作"
+            >
+                <template scope="scope">
+                    <el-button type="text">详情</el-button>
+                    <el-button type="text" @click="deleteArticle(scope.$index,scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div v-show="emptyList == 0">
+            <span style="display:inline-block;width: 100%;text-align: center;">快去写点东西吧！！！</span>
         </div>
-
-        <nav>
-            <ul class="pagination">
-                <li v-for="n in pages" :class="{'active':n==curPage}">
-                    <a href="javascript:;" @click="getArticleList(n, sortby, followPageSort, category, user, keyword)">{{n}}</a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </template>
 <script>
 export default {
   data(){
         return{
+            articleList: [],
+            emptyList: 2,
             //pagination
             articles:[],
             pages:[],
@@ -100,75 +56,71 @@ export default {
         }
     },
      methods:{
-        //获取所有文章  (1, 'created', 'desc', 'categoryId', 'userId'， 'keyword；')
-        getArticleList(page, sortby, sortdir, categoryId, userId, keyword){
-            let API='/admin/article?page='+page+'&sortby='+sortby+'&sortdir='+sortdir+'&categoryId='+categoryId+'&userId='+userId+'&keyword='+keyword;
-            this.$axios.get(API).then(function(res){
-                //console.log('result:'+JSON.stringify(res.body.result));
-                this.pages=[];
-                this.articles = res.body.result;
-                this.pageCount = res.body.pageCount;
-                this.curPage = res.body.curPage;
-                this.showArrow = res.body.sortby;
-                //the time&conent has formated
-                for(let i=0; i<this.articles.length; i++){
-                    this.articles[i].created=moment(this.articles[i].created).format('YYYY-MM-DD HH:MM:SS');
+        //获取所有文章  
+        getArticleList(){
+            let that = this;
+            this.$axios.get('api/admin/articleList').then(function(reponse){
+                console.log(reponse.data);
+                that.articleList = reponse.data;
+                if(that.articleList.length>=1){
+                    that.emptyList = 1;
                 }
-                for(var i=0; i<this.pageCount; i++){
-                    this.pages.push(i+1);
-                }
-            },function(res){
-                alert('获取文章列表失败： '+ res.status);
-            });
+            }).catch(function(err){
+                console.log(err)
+            })
         },
         //删除文章
-        deleteArticle(id, index){
-            this.$axios.delete('/article/' + id).then(function(res){
-                if(res.status==200) this.articles.splice(index,1);
-                if(this.articles.length<1){
-                    this.getArticleList(1, this.sortby, this.sortdir, this.category, this.user, this.keyword);
+        deleteArticle(index, row){
+            let that = this;
+            console.log(row.title)
+            this.$axios.post('api/admin/deleArticle',{title:row.title}).then(function(res){
+                that.getArticleList();
+                // if(res.status==200) this.articleList.splice(index,1);
+                if(that.articleList.length<1){
+                    that.emptyList = 0;
                 }
+                Message.success('删除文章成功')
             }, function(res){
-                alert('删除文章列表： '+ res.status);
+                Message.error('删除文章列表： '+ res.status);
             });
         },
-        //format: sortby(1, 'title', 'desc')
-        sortList(page, sortby, sortdir, category, user, keyword){
-            this.sortby=sortby;
-            if(this.sortdir=='desc'){
-                this.arrow='⤓';
-                this.sortdir='asc';
-                this.followPageSort='desc' //点击翻页和点击那个选项正好相反
-            }else{
-                this.arrow='⤒';
-                this.sortdir='desc';
-                this.followPageSort='asc'
-            }
-            this.getArticleList(page, sortby, sortdir, category, user, keyword);
-        },
-        //获取所有分类
-        getCategories(){
-            this.$axios.get('/category').then(function(res){
-                this.categories = res.body;
-            },function(res){
-                alert('获取分类失败： '+ res.status);
-            });
-        },
-        //获取所有作者
-        getUsers(){
-            this.$axios.get('/user').then(function(res){
-                this.users = res.body;
-            },function(res){
-                alert('获取作者失败： '+ res.status);
-            });
-        }
+        // //format: sortby(1, 'title', 'desc')
+        // sortList(page, sortby, sortdir, category, user, keyword){
+        //     this.sortby=sortby;
+        //     if(this.sortdir=='desc'){
+        //         this.arrow='⤓';
+        //         this.sortdir='asc';
+        //         this.followPageSort='desc' //点击翻页和点击那个选项正好相反
+        //     }else{
+        //         this.arrow='⤒';
+        //         this.sortdir='desc';
+        //         this.followPageSort='asc'
+        //     }
+        //     this.getArticleList(page, sortby, sortdir, category, user, keyword);
+        // },
+        // //获取所有分类
+        // getCategories(){
+        //     this.$axios.get('/category').then(function(res){
+        //         this.categories = res.body;
+        //     },function(res){
+        //         alert('获取分类失败： '+ res.status);
+        //     });
+        // },
+        // //获取所有作者
+        // getUsers(){
+        //     this.$axios.get('/user').then(function(res){
+        //         this.users = res.body;
+        //     },function(res){
+        //         alert('获取作者失败： '+ res.status);
+        //     });
+        // }
     },
     components:{
     },
     created(){
-        this.getArticleList(1, this.sortby, this.sortdir, this.category, this.user, this.keyword);
-        this.getCategories();
-        this.getUsers();
+        this.getArticleList();
+        // this.getCategories();
+        // this.getUsers();
     }
 }
 </script>
