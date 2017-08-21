@@ -29,3 +29,9 @@
 	使用history mode ： /home.html	
 9. banner 图中使用position判断会出现连续点击的问题，解决办法：使用点击次数来控制左右的		移动
 10. element 组件中的change事件对所有的子组件都有效
+11. fastcgi sent in stderr: primary script unknown while reading reponse header form upstream ,client 127.0.0.1:9000,host: localhost 问题原因：index.php 的宿主是root 不是nginx 办法：chown nginx.nginx index.php
+12. 使用curl localhost/index.php 会将该文件加载展示到终端页面上
+13. 配置nginx时，只要修改/etc/nginx/conf.d/default.conf文件中的内容即可
+	包括：root /var/www/html （在server的子级下）index index.html index.php
+	将location中的root 改为root /var/www/html ;index index.html index.php index.htm
+	将php 的location 中的fastcgi_param 改为 $document_root$fastcgi_script_name;
