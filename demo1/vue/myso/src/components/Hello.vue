@@ -13,7 +13,11 @@
     <h3><router-link to="/pagination">pagination</router-link></h3>
     <h3><router-link to="/login">login</router-link></h3>
     <h3><router-link to="/reg">reg</router-link></h3>
+<<<<<<< HEAD
     <h3><router-link to="/banner">banner</router-link></h3>
+=======
+    <h3><router-link to="/upload">upload</router-link></h3>
+>>>>>>> eebae8e24758cc1dbd91140866b387476f61ae6c
   </div>
 </template>
 
