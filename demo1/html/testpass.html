@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript RSA Encryption</title>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="util/jsencrypt-master/jsencrypt-master/bin/jsencrypt.min.js"></script>
+<script type="text/javascript">
+
+      // Call this code when the page is done loading.
+      $(function() {
+
+       
+
+        // Run a quick encryption/decryption when they click.
+        $('#testme').click(function() {
+
+          // Encrypt with the public key...
+          var id = 'qwert&^%$/5tvfcvfcy//';
+          var encrypt = new JSEncrypt();
+          var data = encrypt.setPublicKey($('#pubkey').val());
+          console.log(data+"公钥加密");
+          var encrypted = encrypt.encrypt(id);
+          console.log(encrypted+"内容加密");
+          
+          
+           $.ajax({
+                url: 'http://10.10.20.187/api/User/is_login',
+                // dataType: "json",
+                async:false,
+                type: 'post',
+                data: "name=" + encodeURI(encrypted).replace(/\+/g, '%2B'),
+                dataType: 'jsonp',
+                crossDomain: true,
+                success: function (res) {
+                  console.log(res)  
+                  // var encrypt = new JSEncrypt();
+                  // var data = encrypt.setPublicKey($('#pubkey').val());
+                  // console.log(data+"公钥加密")
+                  // var encrypted = encrypt.encrypt(res);
+                  // console.log(encrypted+"内容加密")
+
+                },
+                error: function(error) {
+                  console.log(error)
+                }
+            });
+
+          
+        });
+      });
+    </script>
+  </head>
+  <body>
+  
+    <label for="pubkey">Public Key</label><br/>
+    <textarea id="pubkey" rows="15" cols="65">-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbq7p4v7WUMoP8mIK6Rnx31ZCM
+TA3qhBFJ34eOMx8WvIO3ddJk4l35psSVncbtQSxr0JgFb7oejEaAzMXNGG5xbGMq
+UYOZ++TTN+XTqpuTxvQ15M/YCAZWjf2eUgLtSz3DsO9JFMld+vxlv2WoUkiBbP0a
+hLPoP7p1OrT4LRl25QIDAQAB
+-----END PUBLIC KEY-----
+</textarea><br/>
+    <label for="input">Text to encrypt:</label><br/>
+    <textarea id="input" name="input" type="text" rows=4 cols=70>This is a test!</textarea><br/>
+    <input id="testme" type="button" value="Test Me!!!" /><br/>
+
+
+  </body>
+      
+  <script>
+    // function getUserInfo(){
+    //         console.log(1)
+    //         $.ajax({
+    //             url: 'http://localhost:8083/local.php?s=api/User/is_login',
+    //             dataType: "json",
+    //             async:false,
+    //             type: 'get',
+    //             success: function (res) {
+                    
+
+    //             }
+    //         });
+    //     }
+  </script>
+</html>

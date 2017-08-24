@@ -15,6 +15,7 @@ import list from '@/components/common/list'
 import pagination from '@/components/common/pagination'
 import login from '@/components/login'
 import reg from '@/components/reg'
+import banner from '@/components/banner'
 
 Vue.use(Router)
 
@@ -96,6 +97,11 @@ export default new Router({
       path: '/reg',
       name: '/reg',
       component: reg
+    },
+    {
+      path: '/banner',
+      name: '/banner',
+      component: banner
     }
   ]
 })

@@ -38,8 +38,24 @@
             console.log(reject)
           });
         }
+      },
+      //加密方法
+      passwordMethod() {
+        var username = this.phoneNum;
+            var password = this.cipherNum;
+
+            var encrypt = new this.$jsEncrypt.JSEncrypt();
+            var data = encrypt.setPublicKey("-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbq7p4v7WUMoP8mIK6Rnx31ZCMTA3qhBFJ34eOMx8WvIO3ddJk4l35psSVncbtQSxr0JgFb7oejEaAzMXNGG5xbGMqUYOZ++TTN+XTqpuTxvQ15M/AZWjf2eUgLtSz3DsO9JFMld+vxlv2WoUkiBbP0ahLPoP7p1OrT4LRl25QIDAQAB-----END PUBLIC KEY-----");
+            // console.log(data+"公钥加密");
+            var usernamepass = encrypt.encrypt(username);
+            var passwordpass = encrypt.encrypt(password);
+
+            var userpass = encodeURI(usernamepass).replace(/\+/g, '%2B');
+            var pass = encodeURI(passwordpass).replace(/\+/g, '%2B');
+            // console.log(encrypted+"内容加密");
       }
     }
+
 </script>
 
 <style scoped src="../css/login.css"></style>

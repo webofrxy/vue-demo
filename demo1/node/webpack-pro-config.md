@@ -177,3 +177,5 @@ module.exports = webpackConfig
         cssProcessorOptions: { discardComments: {removeAll: true } }, // 传递给编译器的参数
         canPrint: true // 是否能够输出信息
    })
+# 遇到的问题
+1. jsencrypt插件引入后服务器找不到文件
