@@ -10,6 +10,7 @@ fs.readdir(src, function(err, files) {
 		fs.rename(oldPath, newPath, function(err) {
 			if(!err) {
 				console.log(filename + '下划线替换成功！')
+				console.log(__dirname)
 			}
 		})
 	})

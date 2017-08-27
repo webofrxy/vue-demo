@@ -5,10 +5,10 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    productionSourceMap: true,
+    assetsRoot: path.resolve(__dirname, '../dist'),//node 下的path.resolve模块用于解析出一个绝对路径
+    assetsSubDirectory: 'static', //打包后放在static目录下
+    assetsPublicPath: '/', //打包后的路径
+    productionSourceMap: true, //生产环境下是否产生map文件
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:

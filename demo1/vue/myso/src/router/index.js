@@ -15,11 +15,9 @@ import list from '@/components/common/list'
 import pagination from '@/components/common/pagination'
 import login from '@/components/login'
 import reg from '@/components/reg'
-<<<<<<< HEAD
 import banner from '@/components/banner'
-=======
 import upload from '@/components/common/upload'
->>>>>>> eebae8e24758cc1dbd91140866b387476f61ae6c
+import map from '@/components/common/map'
 
 Vue.use(Router)
 
@@ -111,6 +109,11 @@ export default new Router({
       path: '/upload',
       name: '/upload',
       component: upload
+    },
+    {
+      path: '/map',
+      name: '/map',
+      component: map
     }
   ]
 })
