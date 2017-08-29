@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html {
+        height: 100vh;
+        }
+        body {
+        height: inherit;
+        background: #2e576b;
+        display: -ms-grid;
+        display: grid;
+        }
+        .container {
+        margin: auto;
+        }
+        .card {
+        position: relative;
+        width: 300px; height: 350px;
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        }
+        .card::after {
+        content: '';
+        display: block;
+        width: 100%;  height: 100%;
+        background: linear-gradient(to bottom, #0065a8, rgba(221, 238, 255, 0.4) 46%, rgba(255, 255, 255, 0.5));
+        }
+        .wave {
+        position: absolute;
+        top: 3%; left: 50%;
+        width: 400px;  height: 400px;
+        margin-top: -200px; margin-left: -200px;
+        background: #0af;
+        border-radius: 40%;
+        opacity: .4;
+        animation: shift 3s infinite linear;
+        }
+        .wave.w2 {
+        background: yellow;
+        opacity: .1;
+        animation: shift 7s infinite linear;
+        }
+        .wave.w3 {
+        animation: shift 5s infinite linear;
+        background: crimson;
+        opacity: 0.1;
+        }
+        @-webkit-keyframes shift {
+        from {
+            transform: rotate(360deg);
+        }
+        }
+        @keyframes shift {
+        from {
+            transform: rotate(360deg);
+        }
+        }
+        </style>
+
+        <div class="container">
+        <div class="card">
+            <div class="wave w1"></div>
+            <div class="wave w2"></div>
+            <div class="wave w3"></div>
+        </div>
+        </div>
+    
+</body>
+<script>
+
+onload = function(){
+    // 1. 创建<iframe>元素
+    var iframe = document.createElement('iframe');
+    var showDiv = '<div class="container"><div class="card"><div class="wave w1"></div><div class="wave w2"></div><div class="wave w3"></div></div></div>';
+    var data='<b style="font-size:32px;color:red;">次碳酸钴</b>';
+    var myDiv = `<div class="container">
+        <div class="card">
+            <div class="wave w1"></div>
+            <div class="wave w2"></div>
+            <div class="wave w3"></div>
+        </div>
+        </div>`;
+    // 2. 将CSS，HTML字符串转换为Blob对象
+    var blob = new Blob([myDiv], {
+    'type': 'text/html'
+    });
+    // 3. 使用URL.createObjectURL()方法将...
+    iframe.src = URL.createObjectURL(blob);
+    document.body.appendChild(iframe);
+    console.log(1111)
+}
+
+</script>   
+</html>

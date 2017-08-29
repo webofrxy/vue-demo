@@ -10,6 +10,8 @@
 </template>
 
 <script>
+    import md5 from 'md5'
+
     export default {
     data() {
         return {
@@ -19,6 +21,18 @@
     },
     methods:{
       login() {
+        //页面js加载时间（本地）
+        var loadTime = parseInt(new Date().getTime()/1000);
+        
+        //当前时间
+        var currTime = parseInt(new Date().getTime()/1000);
+       console.log(new Date().getTime()/1000)
+
+
+
+        var mytimestrap = currTime -loadTime
+        var passwordMd5 = md5(this.password)
+        console.log(passwordMd5)
         // 获取已有账号密码
         this.$axios.get('/api/login/getAccount')
           .then((response) => {

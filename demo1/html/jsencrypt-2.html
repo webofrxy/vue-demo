@@ -14,6 +14,7 @@
 
           // Encrypt with the public key...
           var encrypt = new JSEncrypt();
+          console.log(encrypt)
           var data = encrypt.setPublicKey($('#pubkey').val());
           console.log(data+"公钥加密")
           var encrypted = encrypt.encrypt($('#input').val());
