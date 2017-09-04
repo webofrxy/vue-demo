@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CORS</title>
+    <script src="../util/jquery.js"></script>
+</head>
+<body>
+    <div>catching data ...</div>
+    <script>
+        $.ajax({
+            url: '127.0.0.1:8888',
+            success:function(response){
+                console.log("request is success")
+                $('#div').text(data)
+            }
+        })
+    </script>
+</body>
+</html>
