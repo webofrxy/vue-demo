@@ -26,18 +26,18 @@
         
         //当前时间
         var currTime = parseInt(new Date().getTime()/1000);
-       console.log(new Date().getTime()/1000)
+      //  console.log(new Date().getTime()/1000)
 
 
 
         var mytimestrap = currTime -loadTime
         var passwordMd5 = md5(this.password)
-        console.log(passwordMd5)
+        // console.log(passwordMd5)
         // 获取已有账号密码
         this.$axios.get('/api/login/getAccount')
           .then((response) => {
             // 响应成功回调
-            console.log(response)
+            // console.log(response)
             let params = { 
               account : this.account,
               password : this.password
@@ -46,7 +46,7 @@
             return this.$axios.post('/api/login/createAccount',params);
           })
           .then((response) => {
-            console.log(response)
+            // console.log(response)
           })
           .catch((reject) => {
             console.log(reject)
