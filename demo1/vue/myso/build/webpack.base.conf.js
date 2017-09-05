@@ -2,8 +2,15 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+//webpack.base.conf.js主要完成了下面这些事情：
 
-function resolve (dir) {
+// 配置webpack编译入口
+// 配置webpack输出路径和命名规则
+// 配置模块resolve规则
+// 配置不同类型模块的处理规则
+// 说明： 这个配置里面只配置了.js、.vue、图片、字体等几类文件的处理规则，如果需要处理其他文件可以在module.rules里面配置。
+
+function resolve (dir) {//给出正确的绝对路径
   return path.join(__dirname, '..', dir)
 }
 

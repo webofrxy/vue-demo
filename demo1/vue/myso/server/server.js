@@ -2,7 +2,7 @@
 *	载入依赖项
 *	fs： 文件系统；
 *	path: href解决方案
-*	bod-parser： 解析Request body处理req
+*	body-parser： 解析Request body处理req
 *	api： 处理前台请求的接口
 **/
 const fs = require('fs');
