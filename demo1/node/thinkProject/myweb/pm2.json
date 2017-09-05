@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "D:myNotesvue-demodemo1nodethinkProjectD:myNotesvue-demodemo1nodethinkProjectmyweb",
+    "script": "production.js",
+    "cwd": "D:\myNotes\vue-demo\demo1\node\thinkProject\myweb",
+    "exec_mode": "fork",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
