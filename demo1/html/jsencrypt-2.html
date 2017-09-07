@@ -18,7 +18,9 @@
           var data = encrypt.setPublicKey($('#pubkey').val());
           console.log(data+"公钥加密")
           var encrypted = encrypt.encrypt($('#input').val());
-          console.log(encrypted+"内容加密")
+          console.log(typeof encrypted)
+          var userpass = encodeURI(encrypted).replace(/\+/g, '%2B');
+          console.log(typeof userpass)
 
           // Decrypt with the private key...
           var decrypt = new JSEncrypt();

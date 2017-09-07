@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
     <script language="javascript" src="../util/jquery.js"></script>  
     <script language="javascript" src="../util/jquery.base64.js"></script>  
-      
+     <script src="../util/jsencrypt-master/jsencrypt-master/bin/jsencrypt.min.js"></script> 
 </head>  
   
 <body>  
@@ -43,6 +43,7 @@
   
 <script language="javascript">  
 var path=document.getElementById("path").value;  
+var encrypt = new JSEncrypt();
 function app(info){  
    $("#txt").val($("#txt").val()+'\n'+info);  
 }  
@@ -52,10 +53,18 @@ function app(info){
 function subfunc(){ 
 	// $.trim()是jQuery提供的函数，用于去掉字符串首尾的空白字符。 
   var put1=$.trim($("#putcardno01").val());  
+  var data = encrypt.setPublicKey("-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDE2ZO4ThvaFrXtQDuZTvriquyIX10yYJN1ECo4CHzXnU71hOL6mkGvlkSzkS8v1zlIRwh90qkVyC9XrEZYpoYo0D6OCINZxl3tSZpqIyBXqWHjWAXBUtb+fGRnaBCgEADAuIwC2/sof4lYhbbCtSCZUiEBDU8ujgomAIiaWrF6uQIDAQAB-----END PUBLIC KEY-----");
+  var encrypted = encrypt.encrypt(put1)
+  var endata = encodeURI(encrypted).replace(/\+/g,"%2B");
+  console.log(put1)
+  console.log(encrypted)
+  console.log(endata)
+  
  // var estxt=$.base64.encode(put1);  
   //var estxt=$.base64.btoa(put1);  
   
-  var estxt=encodeBase64(put1);  
+  var estxt=encodeBase64(endata);  
+  console.log(estxt)
   $("#putcardno02").val(estxt);  
   app("加密后["+estxt+"]");  
 }  
