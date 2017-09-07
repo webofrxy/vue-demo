@@ -18,3 +18,9 @@
 6. hash函数（散列函数）：主要为MD5，SHA1，用于验证数据的完整性，散列值被称为数据的指纹，也叫数字签名
 7. 加密过程：hash数字签名=》私钥加密=》堆成加密=》随机秘钥
 8. https则是在上面的基础上加了CA平台认证这一程序
+2017-9-7
+1. node 中crypto 模块包括openssl的工具，有hash模块，有hmac认证模块，有随机数函数和自动加盐的函数
+2. 代理分为正向代理和反向代理，node中的http-proxy可以实现node服务器的反向代理，同Nginx类似，正向代理则是从客户端发起的
+3. node中cookie-parser可以将request中的cookie解析出来，通过req中的header方法可以从请求头中将cookie取出，req.header.cookie 可以取出对应的cookie，req.header.cookie.split(';')则可以取出对应的字段
+4. node中的url模块可以解析url中的信息，url.parse().pathname可以取出路径的名称
+5. node中http模块中的req和res可以分别获取请求头中的信息和server返回的内容，res.writeHead();res.write();res.end();
