@@ -41,8 +41,8 @@ http.createServer((req,res) => {
             console.log("request success")
             const file = fs.createReadStream(realPath);
             res.writeHead(200,{'Content-Type': mimetype[realPath.split('.').pop()] || 'text/plain'});
-            file.on('data',res.write.bind(res));
-            file.on('close',res.end.bind(res));
+            file.on('data',res.write.bind(res));//??
+            file.on('close',res.end.bind(res));//??
             file.on('error',function(err){
                 console.log(err);
                 return '500'
