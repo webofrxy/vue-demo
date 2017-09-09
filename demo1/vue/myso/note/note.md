@@ -24,3 +24,4 @@
 3. node中cookie-parser可以将request中的cookie解析出来，通过req中的header方法可以从请求头中将cookie取出，req.header.cookie 可以取出对应的cookie，req.header.cookie.split(';')则可以取出对应的字段
 4. node中的url模块可以解析url中的信息，url.parse().pathname可以取出路径的名称
 5. node中http模块中的req和res可以分别获取请求头中的信息和server返回的内容，res.writeHead();res.write();res.end();
+6. encodeUrl编码是指将url中的一些字符转换为标准的字符，便于服务器识别
