@@ -1,0 +1,2 @@
+'ust strict'
+const goodsList =[{}]

@@ -25,3 +25,6 @@
 4. node中的url模块可以解析url中的信息，url.parse().pathname可以取出路径的名称
 5. node中http模块中的req和res可以分别获取请求头中的信息和server返回的内容，res.writeHead();res.write();res.end();
 6. encodeUrl编码是指将url中的一些字符转换为标准的字符，便于服务器识别
+2017-9-9
+1. h5中的data-src可以用来实现ref的功能
+2. js中可以通过obj.style.cssText在js中添加css属性

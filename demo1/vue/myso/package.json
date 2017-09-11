@@ -39,7 +39,7 @@
     "truncate": "^2.0.0",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0",
-    "vuex": "^2.2.1"
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

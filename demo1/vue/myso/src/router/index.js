@@ -19,6 +19,7 @@ import banner from '@/components/banner'
 import upload from '@/components/common/upload'
 import map from '@/components/common/map'
 
+
 Vue.use(Router)
 
 export default new Router({

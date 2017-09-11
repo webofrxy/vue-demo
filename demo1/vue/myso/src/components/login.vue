@@ -5,12 +5,15 @@
       <el-input v-model="account"  placeholder="请输入账号"></el-input>
       <el-input v-model="password" class="login-password" placeholder="请输入密码"></el-input>
       <el-button type="primary"  @click="login" style="width: 100%;">登录</el-button>
+      <!-- <el-button type="default"  @click="register" style="width: 100%;">注册</el-button>  -->
+      
     </div>
   </div>
 </template>
 
 <script>
     import md5 from 'md5'
+    import {mapState,mapMutations} from "vuex"
 
     export default {
     data() {
@@ -19,8 +22,16 @@
             password : ''
         }
     },
+    computed: mapState({
+      count: 'numb'
+    }),
     methods:{
+      ...mapMutations([
+        'GETLOGIN'
+      ]),
       login() {
+        //练习Vuex
+        // console.log(this.$store.state.account)
         //页面js加载时间（本地）
         var loadTime = parseInt(new Date().getTime()/1000);
         
@@ -37,21 +48,27 @@
         this.$axios.get('/api/login/getAccount')
           .then((response) => {
             // 响应成功回调
-            // console.log(response)
-            let params = { 
-              account : this.account,
-              password : this.password
-            };
-            // 创建一个账号密码
-            return this.$axios.post('/api/login/createAccount',params);
-          })
-          .then((response) => {
-            // console.log(response)
+            console.log(response.data[2].account)
+            this.GETLOGIN(response.data[2].account)
           })
           .catch((reject) => {
             console.log(reject)
           });
         }
+      },
+      register() {
+        console.log()
+        let params = { 
+          account : this.account,
+          password : this.password
+        };
+        // 创建一个账号密码
+        this.$axios.post('/api/login/createAccount',params).then(function(res){
+          console.log(res)
+        }).catch(function(err){
+          console.log(err)
+        });
+
       },
       //加密方法
       passwordMethod() {
@@ -68,6 +85,7 @@
             var pass = encodeURI(passwordpass).replace(/\+/g, '%2B');
             // console.log(encrypted+"内容加密");
       }
+      
     }
 
 </script>

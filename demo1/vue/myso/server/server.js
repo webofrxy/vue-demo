@@ -1,4 +1,5 @@
 /*
+*   现在node server 可以运行，node index不可以运行
 *	载入依赖项
 *	fs： 文件系统；
 *	path: href解决方案
