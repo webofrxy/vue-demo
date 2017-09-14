@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/page/home'
 import register from '@/page/register'
 import login from '@/page/login'
+import payWay from '@/page/payWay'
 
 Vue.use(Router)
 
@@ -38,6 +39,7 @@ export default new Router({
       path: '/login',
       name: 'name',
       component: login
-    }
+    },
+    {path: '/payWay',name: 'payWay', component: payWay}
   ]
 })
