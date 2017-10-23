@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>window 对象</title>
+</head>
+<body>
+   <input type="button" value="open" onclick="open()"> 
+   <input type="button" value="close" onclick="close()">
+   <input type="button"  value="move" onclick="moveTo()">
+</body>
+<script>
+    document.write(window.innerHeight);
+    document.write(window.innerWidth);
+    function open(){
+        window.open('','','width=200,height=100');
+        window.moveTo(200,100);
+        document.write('这是我的窗口');
+    }
+    function close(){
+        window.close();
+    }
+    function moveTo(){
+        window.moveTo();
+    }
+</script>
+</html>

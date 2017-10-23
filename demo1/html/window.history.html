@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js window history 对象</title>
+</head>
+<body>
+    <input type="button" value="back" onclick="goback()">
+    <input type="button" value="forward" onclick="goforward()">
+</body>
+<script>
+    function goback(){
+        console.log(1)
+        window.history.back();
+    }
+    function goforward(){
+        console.log(2);
+        window.history.forward();
+    }
+</script>
+</html>

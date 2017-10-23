@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ 
+<form name="form1" id="form1">  
+        <p>name:<input type="text" name="name" /></p>  
+        <p>gender:<input type="radio" name="gender" value="1" />male <input type="radio" name="gender" value="2" />female</p>
+        <p>stu-number：<input type="text" name="number" /></p>  
+        <p>photo:<input type="file" name="photo" id="photo"></p>  
+        <p><input type="button" name="b1" value="submit" onclick="fsubmit()" /></p>  
+</form>  
+<div id="result"></div>
+ 
+</body>
+<script>
+
+function fsubmit() {
+    var form=document.getElementById("form1");
+    var formData=new FormData(form);
+    console.log(formData.name);
+    console.log(formData)
+    console.log(form)
+    for (var value of formData.values()) {
+           console.log(value); 
+        }
+    for (var name of formData.keys()) {
+        console.log(name); 
+    }
+    return false;
+    var oReq = new XMLHttpRequest();
+    oReq.onreadystatechange=function(){
+      if(oReq.readyState==4){
+        if(oReq.status==200){
+            console.log(typeof oReq.responseText);
+            var json=JSON.parse(oReq.responseText);
+            var result = '';
+            result +="个人信息：<br/>name:"+json['name']+"<br/>gender:"+json['gender']+"<br/>number:"+json['number'];
+             result += '<br/>头像：<img src="' + json['photo'] + '" height="50" style="border-radius: 50%;" />';
+ 
+             $('#result').html(result);
+        }
+      }
+    };
+    oReq.open("POST", "server.php");
+    oReq.send(formData); 
+    return false;
+}
+ 
+</script>
+</html>

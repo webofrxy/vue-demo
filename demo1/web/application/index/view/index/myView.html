@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>这是myview.html</h1>
+    <h2>{$email} : {$email|md5}</h2>
+    <h2>{$name} : {$name|sha1|strtoupper}</h2>
+    <h2>{$email} : {$email|substr=0,6}</h2>
+    <label><input type="radio" name="xu">苹果</label>
+    <label><input type="radio" name="xu">苹果</label>
+    <label><input type="radio" name="xu">苹果</label>
+    {for start='1' end='10' step="2"}
+        <p>{$i}</p>
+    {/for}
+    <ul>
+        {for start="1" end="5" name="k"}
+            <li>{$k}</li>
+        {/for}
+    </ul>
+    <?php
+        $PI = "PI";
+        define("PII","3.14");
+        define($PI,"3.15");
+        echo PII;
+        echo PI;
+        echo "</br>";        
+        $mystr = "this is a string";
+        echo $mystr;
+        echo "</br>";
+        echo strlen($mystr);
+        echo "</br>";
+        
+        echo strpos($mystr,"is");
+        echo "</br>";
+        
+        echo "PHP运算符";
+        echo "</br>";
+        $a = 91;
+        $b = 8;
+        $c = 7;
+        $d = 3;
+        echo $a - $b;    
+        echo "</br>";
+        echo $a + $b;
+        echo "</br>";
+        echo $a/$b;
+        echo "</br>";
+        echo $a*$b;
+        echo "</br>";
+        echo $a%$b;
+        echo "</br>";
+        echo ++$b;
+        echo "</br>";
+        echo $c++;
+        echo "</br>";
+        echo --$b;
+        echo "</br>";
+        echo $d --;
+        echo "</br>";
+        echo $a.$b;        
+        echo "</br>";
+        var_dump($a == $b);  
+        echo $a == $b;//无效
+        echo $_SERVER['PHP_SELF'];
+        echo "<br>";
+        echo $_SERVER['SERVER_NAME'];
+        echo "<br>";
+        echo $_SERVER['HTTP_HOST'];
+        
+        echo "<br>";
+        echo $_SERVER['HTTP_USER_AGENT'];
+        echo "<br>";
+        echo $_SERVER['SCRIPT_NAME'];      
+    ?>
+</body>
+<script>
+    var ws = new WebSocket();
+    console.log(ws);
+</script>
+</html>
