@@ -35,3 +35,5 @@
 	包括：root /var/www/html （在server的子级下）index index.html index.php
 	将location中的root 改为root /var/www/html ;index index.html index.php index.htm
 	将php 的location 中的fastcgi_param 改为 $document_root$fastcgi_script_name;
+14. mint-ui 0中的加载更多的组件，在页面中只能使用一个，否则需要使用v-if将其中一个干掉，因为display：none也不起效果，只能显示一个
+15. 上传图片时使用<input type="file" @change="createImg($event)" name="image"  accept="image/*" multiple >不能添加capture属性，否则会直接调用相机，accpet中不能分开写类型，否则安卓机无法正常调用，无法选择图片，无法读取图片。由于读取图片时异步操作，所以要加settimeout和alert控制异步的副作用（不能正常加载）。
